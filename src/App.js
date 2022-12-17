@@ -5,12 +5,15 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import About from './components/About';
+
 import {
   BrowserRouter,
   Routes,
   Route,
   
+  
 } from "react-router-dom";
+
 
 function App() {
   const [mode,setMode]= useState('light');  
@@ -52,19 +55,20 @@ function App() {
     <>
 <Navbar title= "Txtutils" mode={mode} toggleMode={toggleMode}/>
 <Alert alert={alert}/>
-<div class="container">
+<div className="container">
 
   <BrowserRouter>
     <Routes>
       
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About mode={mode} />} />
           
           < Route exact path="/"
            
-          element= {<TextForm heading="Enter the text to analyse: " showAlert={showAlert} mode={mode}/>} /> 
+          element= {<TextForm heading="Try TextUtils - Word Counter, Text Counter " showAlert={showAlert} mode={mode}/>} /> 
           
      </Routes>
-   </BrowserRouter>
+  </BrowserRouter>
+  
    </div>
   </>
   );
